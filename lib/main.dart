@@ -24,8 +24,32 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Route route = MaterialPageRoute(builder: (context) => Page2());
+          Navigator.push(context, route);
+        },
         child: const Text('Move to Page 2'),
+      ),
+    );
+  }
+}
+
+class Page2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('second page'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Route route = MaterialPageRoute(builder: (context) => HomePage());
+            Navigator.pop(context);
+          },
+          child: const Text('Move to HomePage'),
+        ),
       ),
     );
   }
